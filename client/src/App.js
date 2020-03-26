@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class App extends Component {
   // initialize our state
   state = {
@@ -106,7 +107,7 @@ class App extends Component {
       <div>
         <ul>
           {data.length <= 0
-            ? 'NO DB ENTRIES YET'
+            ? 'ENTER YOUR FISH INTO THE LIVE WELL'
             : data.map((dat) => (
                 <li style={{ padding: '10px' }} key={data.message}>
                   <span style={{ color: 'gray' }}> id: </span> {dat.id} <br />
@@ -119,7 +120,7 @@ class App extends Component {
           <input
             type="text"
             onChange={(e) => this.setState({ message: e.target.value })}
-            placeholder="add something in the database"
+            placeholder="add your fish species"
             style={{ width: '200px' }}
           />
           <button onClick={() => this.putDataToDB(this.state.message)}>
@@ -131,7 +132,7 @@ class App extends Component {
             type="text"
             style={{ width: '200px' }}
             onChange={(e) => this.setState({ idToDelete: e.target.value })}
-            placeholder="put id of item to delete here"
+            placeholder="fish id to delete"
           />
           <button onClick={() => this.deleteFromDB(this.state.idToDelete)}>
             DELETE
@@ -142,13 +143,13 @@ class App extends Component {
             type="text"
             style={{ width: '200px' }}
             onChange={(e) => this.setState({ idToUpdate: e.target.value })}
-            placeholder="id of item to update here"
+            placeholder="fish id to update"
           />
           <input
             type="text"
             style={{ width: '200px' }}
             onChange={(e) => this.setState({ updateToApply: e.target.value })}
-            placeholder="put new value of the item here"
+            placeholder="put new fish species here"
           />
           <button
             onClick={() =>
